@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"      //used to control terminal variables
-	"strconv" //check var are string
+	"strconv" //manipulate enter vars to check if its int
 )
 
 func GCF(a, b int) int {
