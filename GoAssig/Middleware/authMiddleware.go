@@ -12,14 +12,14 @@ var (
 	secretKey = []byte(os.Getenv("SECRET_TOKEN"))
 )
 
-func VerifyAuth() gin.HandlerFunc {
+func Auth() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		prefix := "Bearer "
 		header := c.GetHeader("Authorization")
 		tokenString := strings.TrimPrefix(header, prefix)
 
 		if header == "" || tokenString == header {
-			c.IndentedJSON(http.StatusUnauthorized, gin.H{"message": "You are not authentified and therefore cannot perform this operation."})
+			c.IndentedJSON(http.StatusUnauthorized, gin.H{"message": "You need to be connected."})
 			return
 		}
 
